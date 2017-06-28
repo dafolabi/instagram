@@ -29,8 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if PFUser.current() != nil {
             // if there is a logged in user then load the home view controller
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let homepageViewController = storyboard.instantiateViewController(withIdentifier: "homepageViewController")
-            window?.rootViewController = homepageViewController
+            let homeViewController = storyboard.instantiateViewController(withIdentifier: "homeViewController")
+            window?.rootViewController = homeViewController
         }
         
         return true
