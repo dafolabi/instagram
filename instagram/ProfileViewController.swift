@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ProfileViewController: UIViewController {
 
@@ -21,6 +22,22 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didHitLogoutButton(_ sender: Any) {
+        PFUser.logOutInBackground { (error: Error?) in
+            // PFUser.currentUser() will now be nil
+            // check if user is logged in.
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                // if there is a logged in user then load the home view controller
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let LoginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+                self.present(LoginViewController, animated: true, completion: {
+
+                })
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

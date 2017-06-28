@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -52,7 +52,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instagram" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jt9-4U-mev">
-                                <rect key="frame" x="107" y="189" width="160" height="43"/>
+                                <rect key="frame" x="107" y="179" width="160" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="34"/>
                                 <nil key="textColor"/>
@@ -120,6 +120,16 @@
                     <view key="view" contentMode="scaleToFill" id="j33-Mt-mcR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DiH-Mf-BPe">
+                                <rect key="frame" x="163" y="318" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="didHitLogoutButton:" destination="hlw-st-MgI" eventType="touchUpInside" id="xLT-FC-Yvt"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="6iF-8u-mla"/>
@@ -131,7 +141,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="BJn-5j-uqa">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="CC9-Mw-pkx" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabbarViewController" automaticallyAdjustsScrollViewInsets="NO" id="CC9-Mw-pkx" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="RZ7-yM-05R">
                         <autoresizingMask key="autoresizingMask"/>
@@ -139,8 +149,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="9MI-wD-vL7" kind="relationship" relationship="viewControllers" id="HCA-i0-4w5"/>
-                        <segue destination="XvO-ll-S1h" kind="relationship" relationship="viewControllers" id="i7S-5h-LdZ"/>
                         <segue destination="hlw-st-MgI" kind="relationship" relationship="viewControllers" id="UVy-3g-01a"/>
+                        <segue destination="XvO-ll-S1h" kind="relationship" relationship="viewControllers" id="i7S-5h-LdZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lf5-g7-7bf" userLabel="First Responder" sceneMemberID="firstResponder"/>
