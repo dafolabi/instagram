@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import ParseUI
+import Parse
 
 class profileCell: UICollectionViewCell {
-    
+    @IBOutlet weak var profileImageView: PFImageView!
 }

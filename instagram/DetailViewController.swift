@@ -20,6 +20,8 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var detailTimestamp: UILabel!
     
+    @IBOutlet weak var likes: UILabel!
+    
     var post: PFObject!
     
     override func viewDidLoad() {
@@ -27,6 +29,9 @@ class DetailViewController: UIViewController {
         
         detailImageView.file = post["media"] as? PFFile
         detailphotoCaption.text = post["caption"] as! String
+        
+        let tempLikes =  String(post["likesCount"] as! Int!)
+        self.likes.text = "Stings " + tempLikes
         
         let author = post["author"] as! PFUser
         detailAuthor.text = "username: " + author.username!

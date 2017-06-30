@@ -14,12 +14,23 @@ class homeCell: UITableViewCell {
     @IBOutlet weak var photoView: PFImageView!
     @IBOutlet weak var photoCaption: UILabel!
     
+    
     var instagramPost: PFObject! {
         didSet {
             self.photoView.file = instagramPost["media"] as? PFFile
-            self.photoCaption.text = instagramPost["caption"] as! String
+            
+            let tempCaption = instagramPost["caption"] as! String
+            
+            let author = instagramPost["author"] as! PFUser
+            self.photoCaption.text = author.username! + ": " + tempCaption
+            
+            
             self.photoView.loadInBackground()
         }
+    }
+    
+    @IBAction func didHitSting(_ sender: Any) {
+            instagramPost?["likesCount"] = instagramPost?["likesCount"] as! Int + 1
     }
     
     override func awakeFromNib() {

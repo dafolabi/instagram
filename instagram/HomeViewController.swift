@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 import Parse
 import ParseUI
 
@@ -25,7 +26,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var loadingMoreView:InfiniteScrollActivityView?
     
     static var newpost = false
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,12 +83,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
-    func refresh() {
+    func refresh(withLimit limit: Int = 20) {
         // construct PFQuery
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        
         var query = PFQuery(className: "Post")
         query.order(byDescending: "createdAt")
         query.includeKey("author")
-        query.limit = 20
+        query.limit = limit
         
         // fetch data asynchronously
         query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) -> Void in
@@ -111,6 +113,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // Reload the tableView now that there is new data
         self.tableView.reloadData()
+        MBProgressHUD.hide(for: self.view, animated: true)
     }
     
     func didPullToRefresh(_ refreshControl: UIRefreshControl) {
@@ -135,7 +138,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 loadingMoreView!.startAnimating()
                 
                 // Code to load more results
-                refresh()
+                refresh(withLimit: (posts?.count)! + 20)
             }
         }
     }
@@ -184,6 +187,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: HeaderViewIdentifier) as! UITableViewHeaderFooterView
         
         let post = posts![section]
+                
         let author = post["author"] as! PFUser
         
         var dateString = ""
@@ -205,8 +209,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 30
     }
 
-    
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -214,6 +216,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = sender as! UITableViewCell
         if let indexPath = tableView.indexPath(for: cell) {
             let post = posts?[indexPath.row]
+//            post?["likesCount"] = post?["likesCount"] as! Int + 1
             let detailViewController = segue.destination as! DetailViewController
             detailViewController.post = post
         }
