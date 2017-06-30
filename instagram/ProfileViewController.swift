@@ -10,7 +10,6 @@ import UIKit
 import Parse
 
 class ProfileViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +31,7 @@ class ProfileViewController: UIViewController {
                 // if there is a logged in user then load the home view controller
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let LoginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+                // self.dismiss(animated: true, completion: nil)
                 self.present(LoginViewController, animated: true, completion: {
 
                 })
