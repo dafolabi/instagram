@@ -14,27 +14,28 @@ The following **required** functionality is completed:
 - [X] User can take a photo, add a caption, and post it to "Instagram"
 - [X] User can view the last 20 posts submitted to "Instagram"
 - [X] User can pull to refresh the last 20 posts submitted to "Instagram"
-- [X] User can load more posts once he or she reaches the bottom of the feed using infinite Scrolling
-- [X] User can tap a post to view post details, including timestamp and creation
-- [X] User can use a tab bar to switch between all "Instagram" posts and posts published only by the user.
+- [X] User can tap a post to view post details, including timestamp and caption.
 
 The following **optional** features are implemented:
 
+- [X] Style the login page to look like the real Instagram login page. - (custom styled bee theme)
+- [X] Style the feed to look like the real Instagram feed. - (custom styled bee theme)
+- [X] User can use a tab bar to switch between all "Instagram" posts and posts published only by the user. AKA, tabs - [ ] for Home Feed and Profile
+- [X] Add a custom camera using the CameraManager library.
+- [X] User can load more posts once he or she reaches the bottom of the feed using infinite scrolling.
 - [X] Show the username and creation time for each post
-- [X] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse.
-- [ ] User Profiles:
+Hint: If you use TableView Section Headers to display the the username and creation time, you'll get "sticky headers" - [ ] similar to the actual Instagram app.
+- [X] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse
+- User Profiles:
    - [ ] Allow the logged in user to add a profile photo
    - [ ] Display the profile photo with each post
    - [ ] Tapping on a post's username or profile photo goes to that user's profile page
 - [X] User can comment on a post and see all comments for each post in the post details screen.
 - [X] User can like a post and see number of likes for each post in the post details screen.
-- [x] Run your app on your phone and use the camera to take the photo
-
-
+- [X] Run your app on your phone and use the camera to take the photo
 The following **additional** features are implemented:
 
-- [X] List anything else that you can get done to improve the app functionality!
-   - Added customizable camera with flash, option to choose from camera rool, and zoom. I installed a pod and implemented it following the steps on github after searching for instagram cameras 
+- [] List anything else that you can get done to improve the app functionality!
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
